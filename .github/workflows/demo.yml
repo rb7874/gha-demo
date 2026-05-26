@@ -1,0 +1,21 @@
+---
+name: GitHub Actions Demo
+
+'on':
+  workflow_dispatch:
+  push:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print demo output
+        run: |
+          echo "🚀 GitHub Actions demo workflow is running"
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Triggered by: $GITHUB_EVENT_NAME"
